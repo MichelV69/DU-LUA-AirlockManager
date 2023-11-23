@@ -1,0 +1,122 @@
+{
+  "events": [],
+  "handlers": [
+    {
+      "code": "--- Airlock Controller\n\n-- check switches\n-- -- if both switches on, turn them both off, reset status lights, close all doors, update screens, exit\n-- -- if only one switch is on, then start the Airlock cycle.\n-- -- -- ensure far door closed\n-- -- -- open near door\n-- -- -- set far door status light (red)\n-- -- -- set near door status light (green)\n-- -- -- set far door switch color (red)\n-- -- -- set near door switch color (blue)\n-- -- -- update screens with process status\n-- -- -- wait six seconds\n-- -- -- close near door\n-- -- -- set near door status light (red)\n-- -- -- set near door switch color (red)\n-- -- -- update screens with process status\n-- -- -- play airlock sound effect\n-- -- -- wait three seconds\n-- -- -- open far door\n-- -- -- set far door status light (yellow)\n-- -- -- update screens with process status\n-- -- -- wait six seconds\n-- -- -- close far door\n-- -- -- set near door status light (green)\n-- -- -- set near door switch color (green)\n-- -- -- set far door status light (green)\n-- -- -- set far door switch color (green)\n-- -- -- update screens with process status\n-- exit ",
+      "filter": {
+        "args": [],
+        "signature": "onStart()",
+        "slotKey": "-1"
+      },
+      "key": "0"
+    }
+  ],
+  "methods": [],
+  "slots": {
+    "0": {
+      "name": "OutsideDoor",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "1": {
+      "name": "OutsideSwitch",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "2": {
+      "name": "OutsideStatusLight",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "3": {
+      "name": "InsideDoor",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "4": {
+      "name": "InsideSwitch",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "5": {
+      "name": "InsideStatusLight",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "6": {
+      "name": "OptOutsideDoorLight",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "7": {
+      "name": "OptInsideDoorLight",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "8": {
+      "name": "OptStatusScreen1",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "9": {
+      "name": "OptStatusScreen2",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "-5": {
+      "name": "library",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "-4": {
+      "name": "system",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "-3": {
+      "name": "player",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "-2": {
+      "name": "construct",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    },
+    "-1": {
+      "name": "unit",
+      "type": {
+        "events": [],
+        "methods": []
+      }
+    }
+  }
+}
