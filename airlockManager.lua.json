@@ -2,7 +2,16 @@
   "events": [],
   "handlers": [
     {
-      "code": "--- Airlock Controller\n\n-- check switches\n-- -- if both switches on, turn them both off, reset status lights, close all doors, update screens, exit\n-- -- if only one switch is on, then start the Airlock cycle.\n-- -- -- ensure far door closed\n-- -- -- open near door\n-- -- -- set far door status light (red)\n-- -- -- set near door status light (green)\n-- -- -- set far door switch color (red)\n-- -- -- set near door switch color (blue)\n-- -- -- update screens with process status\n-- -- -- wait six seconds\n-- -- -- close near door\n-- -- -- set near door status light (red)\n-- -- -- set near door switch color (red)\n-- -- -- update screens with process status\n-- -- -- play airlock sound effect\n-- -- -- wait three seconds\n-- -- -- open far door\n-- -- -- set far door status light (yellow)\n-- -- -- update screens with process status\n-- -- -- wait six seconds\n-- -- -- close far door\n-- -- -- set near door status light (green)\n-- -- -- set near door switch color (green)\n-- -- -- set far door status light (green)\n-- -- -- set far door switch color (green)\n-- -- -- update screens with process status\n-- exit ",
+      "code": "--- project functions\n\n    -- statusLights('reset', 'all')\n    -- closeAllDoors()\n\nfunction statusLights(action, whichLights)\n    end\n    \nfunction closeAllDoors()\n    InsideDoor.close()\n    OutsideDoor.close()\n    end\n\n--- end of file --- ",
+      "filter": {
+        "args": [],
+        "signature": "onStart()",
+        "slotKey": "-5"
+      },
+      "key": "0"
+    },
+    {
+      "code": "--- Airlock Controller\n\n-- Sanity Check\nlocal bootErrors = 0\nif not outsideSwitch then bootErrors = bootErrors+1 end\nif not insideSwitch then bootErrors = bootErrors+1 end\n\nif not outsideDoor then bootErrors = bootErrors+1 end\nif not  insideDoor then bootErrors = bootErrors+1 end\n\nif bootErrors then\n    system.print(\" >> Boot Error.  Missing Crucial Equipment.\")\n    unit.exit()\n    end\n    \n-- check switches\n-- -- if both switches on, turn them both off, reset status lights, close all doors, update screens, exit\nif (outsideSwitch.active() and insideSwitch.active()) then \n    outsideSwitch.deactivate()\n    insideSwitch.deactivate()\n    statusLights('reset')\n    closeAllDoors()\n    end\n-- -- if only one switch is on, then start the Airlock cycle.\n-- -- -- ensure far door closed\n-- -- -- open near door\n-- -- -- set far door status light (red)\n-- -- -- set near door status light (green)\n-- -- -- set far door switch color (red)\n-- -- -- set near door switch color (blue)\n-- -- -- update screens with process status\n-- -- -- wait six seconds\n-- -- -- close near door\n-- -- -- set near door status light (red)\n-- -- -- set near door switch color (red)\n-- -- -- update screens with process status\n-- -- -- play airlock sound effect\n-- -- -- wait three seconds\n-- -- -- open far door\n-- -- -- set far door status light (yellow)\n-- -- -- update screens with process status\n-- -- -- wait six seconds\n-- -- -- close far door\n-- -- -- set near door status light (green)\n-- -- -- set near door switch color (green)\n-- -- -- set far door status light (green)\n-- -- -- set far door switch color (green)\n-- -- -- update screens with process status\n-- exit \n\n--- end of file --- ",
       "filter": {
         "args": [],
         "signature": "onStart()",
