@@ -1,5 +1,4 @@
 -- DU-LuaC template with fixed slots by tobitege
--- Script requires screen and databank to be linked in this fixed order!!!
 
 -- This script is drafted to have this project entry point load most
 -- required code parts via xpcall's for error handling.
@@ -14,25 +13,19 @@
 -- These 2 lines do not interfere ingame but allow the use
 -- of debuggers running the script outside of the game.
 ---@diagnostic disable: param-type-mismatch
-package.path = "lua/?.lua;util/?.lua;"..package.path
+package.path = "util/?.lua;" .. package.path
 
 -- File with commonly shared, independent global constants and switches etc.
 -- This is for use across multiple project entry points.
 require('globals')
 
-    -- The code below is just a "Hello World" that dumps the current links and their element classes
-    system.print('Debugging Control Unit...')
-    for linkName, element in pairs(library.getLinks()) do
-        p(string.format('Found link `%s` of type `%s`', linkName, element.getClass()))
-    end
-
-    -- Sanity Check
+-- Sanity Check
     local bootErrors = 0
     if not outsideButton then bootErrors = bootErrors + 1 end
-    if not insideButton then bootErrors = bootErrors + 1 end
+    if not  insideButton then bootErrors = bootErrors + 1 end
 
     if not outsideDoor then bootErrors = bootErrors + 1 end
-    if not insideDoor then bootErrors = bootErrors + 1 end
+    if not  insideDoor then bootErrors = bootErrors + 1 end
 
     if not outsideLight then bootErrors = bootErrors + 1 end
     if not  insideLight then bootErrors = bootErrors + 1 end
@@ -61,19 +54,20 @@ end
 -- This ONLY works with the screen being a fixed slot in the project file
 -- as otherwise DU-LuaC won't be able to add its event handler code
 -- in the corresponding LUA section!
-local screenEvent = require('main-screen.onOutputChanged')
-if screenEvent ~= nil then
-    -- important: event names start lowercase!
-    MyScreen:onEvent('onOutputChanged', function (self, output) screenEvent.Run(output) end)
-end
 
--- Require the main script's code and in case of error, stop the board
-status, err, _ = xpcall(function() require('main-onStart') end, traceback)
-if not status then
-    P("[E] Error in main-onStart!")
-    if err then P(err) end
-    unit.exit()
-end
+--- local screenEvent = require('main-screen.onOutputChanged')
+--- if screenEvent ~= nil then
+---     -- important: event names start lowercase!
+---     MyScreen:onEvent('onOutputChanged', function (self, output) screenEvent.Run(output) end)
+--- end
+---
+--- -- Require the main script's code and in case of error, stop the board
+--- status, err, _ = xpcall(function() require('main-onStart') end, traceback)
+--- if not status then
+---     P("[E] Error in main-onStart!")
+---     if err then P(err) end
+---     unit.exit()
+--- end
 
 -- Any additional code can be placed here
 P("Script pre-load finished.")
