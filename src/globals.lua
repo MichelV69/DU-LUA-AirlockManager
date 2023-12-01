@@ -1,5 +1,5 @@
 -- Initialize globals and constants
-Config = {unused = true}
+Config = { unused = true }
 DEBUG = true
 INGAME = system ~= nil
 

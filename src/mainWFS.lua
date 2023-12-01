@@ -20,21 +20,21 @@ package.path = "util/?.lua;" .. package.path
 require('globals')
 
 -- Sanity Check
-    local bootErrors = 0
-    if not outsideButton then bootErrors = bootErrors + 1 end
-    if not  insideButton then bootErrors = bootErrors + 1 end
+local bootErrors = 0
+if not outsideButton then bootErrors = bootErrors + 1 end
+if not insideButton then bootErrors = bootErrors + 1 end
 
-    if not outsideDoor then bootErrors = bootErrors + 1 end
-    if not  insideDoor then bootErrors = bootErrors + 1 end
+if not outsideDoor then bootErrors = bootErrors + 1 end
+if not insideDoor then bootErrors = bootErrors + 1 end
 
-    if not outsideLight then bootErrors = bootErrors + 1 end
-    if not  insideLight then bootErrors = bootErrors + 1 end
+if not outsideLight then bootErrors = bootErrors + 1 end
+if not insideLight then bootErrors = bootErrors + 1 end
 
-    if bootErrors then
-        p(" >> Boot Error.  Missing Crucial Equipment.")
-        p(" >> >> need 2 slots buttons, 2 slots doors, 2 slots lights")
-        unit.exit()
-    end
+if bootErrors then
+    p(" >> Boot Error.  Missing Crucial Equipment.")
+    p(" >> >> need 2 slots buttons, 2 slots doors, 2 slots lights")
+    unit.exit()
+end
 
 
 -- The "common-library" could contain commonly shared functions
