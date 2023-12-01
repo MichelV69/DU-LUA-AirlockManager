@@ -20,16 +20,29 @@ package.path = "lua/?.lua;util/?.lua;"..package.path
 -- This is for use across multiple project entry points.
 require('globals')
 
--- Compared to the "main.lua" script, we don't use the "startup" file 
--- here since slots are fixed and named!
+    -- The code below is just a "Hello World" that dumps the current links and their element classes
+    system.print('Debugging Control Unit...')
+    for linkName, element in pairs(library.getLinks()) do
+        p(string.format('Found link `%s` of type `%s`', linkName, element.getClass()))
+    end
 
--- Since the project file specifies named slots, we now must
--- check for "MyScreen" and "MyDB" to actually exist or error out:
-if not MyScreen or not MyDB then
-    P("[E] First link screen, then databank!")
-    unit.exit()
-    return
-end
+    -- Sanity Check
+    local bootErrors = 0
+    if not outsideButton then bootErrors = bootErrors + 1 end
+    if not insideButton then bootErrors = bootErrors + 1 end
+
+    if not outsideDoor then bootErrors = bootErrors + 1 end
+    if not insideDoor then bootErrors = bootErrors + 1 end
+
+    if not outsideLight then bootErrors = bootErrors + 1 end
+    if not  insideLight then bootErrors = bootErrors + 1 end
+
+    if bootErrors then
+        p(" >> Boot Error.  Missing Crucial Equipment.")
+        p(" >> >> need 2 slots buttons, 2 slots doors, 2 slots lights")
+        unit.exit()
+    end
+
 
 -- The "common-library" could contain commonly shared functions
 -- for use across multiple project entries.
@@ -63,10 +76,13 @@ if not status then
 end
 
 -- Any additional code can be placed here
-P("Script finished.")
+P("Script pre-load finished.")
+require('app-lib')
+require('app')
 
 -- Optionally hide the programming board widget
 --unit.hideWidget()
 
--- Optionally end the script now
-unit.exit()
+app()
+
+--- end of file ---

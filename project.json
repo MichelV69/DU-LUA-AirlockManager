@@ -8,22 +8,53 @@
   "outputPath": "out",
   "libs": [],
   "builds": {
-    "mainScript": {
-      "name": "main",
-      "type": "control",
-      "slots": {}
-    },
     "fixedSlots": {
       "name": "mainWFS",
       "type": "control",
       "slots": {
         "0": {
-            "name": "MyScreen",
-            "type": "screen"
+          "name": "insideButton",
+          "type": "ManualButtonUnit"
         },
         "1": {
-            "name": "MyDB",
-            "type": "databank"
+          "name": "insideDoor",
+          "type": "DoorUnit"
+        },
+        "2": {
+          "name": "outsideButton",
+          "type": "ManualButtonUnit"
+        },
+        "3": {
+          "name": "outsideDoor",
+          "type": "DoorUnit"
+        },
+        "4": {
+          "name": "insideLight",
+          "type": "LightUnit"
+        },
+        "5": {
+          "name": "outsideLight",
+          "type": "LightUnit"
+        },
+        "6": {
+          "name": "middleLight",
+          "type": "LightUnit"
+        },
+        "7": {
+          "name": "insideButtonLight",
+          "type": "LightUnit"
+        },
+        "8": {
+          "name": "outsideButtonLight",
+          "type": "LightUnit"
+        },
+        "9": {
+          "name": "statusScreen1",
+          "type": "ScreenUnit"
+        },
+        "10": {
+          "name": "statusScreen1",
+          "type": "ScreenUnit"
         }
       }
     }

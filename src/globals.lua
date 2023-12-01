@@ -1,6 +1,10 @@
 -- Initialize globals and constants
-Config = { core = nil, c_required=true, databanks = {}, db_required=true, screens = {}, s_required=true }
-DEBUG = false
+Config = { core = nil, c_required=false,
+    databanks = {}, db_required=false,
+    screens = {}, s_required=false,
+    switches = {}, sw_required=true,
+ }
+DEBUG = true
 INGAME = system ~= nil
 
 if not INGAME then
