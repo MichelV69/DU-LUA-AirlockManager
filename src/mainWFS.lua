@@ -15,14 +15,17 @@
 ---@diagnostic disable: param-type-mismatch
 package.path = "util/?.lua;" .. package.path
 
+local outsideSwitch = require("dumocks.ManualSwitchUnit"):mockGetClosure()
+local insideSwitch = require("dumocks.ManualSwitchUnit"):mockGetClosure()
+
 -- File with commonly shared, independent global constants and switches etc.
 -- This is for use across multiple project entry points.
 require('globals')
 
 -- Sanity Check
 local bootErrors = 0
-if not outsideButton then bootErrors = bootErrors + 1 end
-if not insideButton then bootErrors = bootErrors + 1 end
+if not outsideSwitch then bootErrors = bootErrors + 1 end
+if not insideSwitch then bootErrors = bootErrors + 1 end
 
 if not outsideDoor then bootErrors = bootErrors + 1 end
 if not insideDoor then bootErrors = bootErrors + 1 end
@@ -35,7 +38,6 @@ if bootErrors then
     p(" >> >> need 2 slots buttons, 2 slots doors, 2 slots lights")
     unit.exit()
 end
-
 
 -- The "common-library" could contain commonly shared functions
 -- for use across multiple project entries.

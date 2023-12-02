@@ -1,24 +1,25 @@
 function app()
     -- Here's to the crazy ones. The misfits. The rebels. The troublemakers.
 
-    -- -- when Button is pressed, then start the Airlock cycle.
+    -- -- when Switch is pressed, then start the Airlock cycle.
+    -- if BOTH Switches are active, reset and ignore
+
     farSet         = {}
-    farSet.button  = outsideButton
+    farSet.switch  = outsideSwitch
     farSet.door    = outsideDoor
     farSet.light   = outsideLight
-    farSet.buttonLight = outsideButtonLight
+    farSet.buttonLight = outsideSwitchLight
 
     nearSet        = {}
-    nearSet.button = insideButton
+    nearSet.switch = insideSwitch
     nearSet.door   = insideDoor
     nearSet.light  = insideLight
 
-
-    if outsideButton.active() then
-        farSet.button  = insideButton
+    if outsideSwitch.active() then
+        farSet.switch  = insideSwitch
         farSet.door    = insideDoor
         farSet.light   = insideLight
-        nearSet.button = outsideButton
+        nearSet.switch = outsideSwitch
         nearSet.door   = outsideDoor
         nearSet.light  = outsideLight
     end
@@ -30,13 +31,13 @@ function app()
     farSet.light.setColor(red)
     -- -- -- set near door status light (green)
     nearSet.light.setColor(green)
-    -- -- -- set far door Button color (red)
-    -- -- -- set near door Button color (blue)
+    -- -- -- set far door Switch color (red)
+    -- -- -- set near door Switch color (blue)
     -- -- -- update screens with process status
     -- -- -- wait six seconds
     -- -- -- close near door
     -- -- -- set near door status light (red)
-    -- -- -- set near door Button color (red)
+    -- -- -- set near door Switch color (red)
     -- -- -- update screens with process status
     -- -- -- play airlock sound effect
     -- -- -- wait three seconds
@@ -46,9 +47,9 @@ function app()
     -- -- -- wait six seconds
     -- -- -- close far door
     -- -- -- set near door status light (green)
-    -- -- -- set near door Button color (green)
+    -- -- -- set near door Switch color (green)
     -- -- -- set far door status light (green)
-    -- -- -- set far door Button color (green)
+    -- -- -- set far door Switch color (green)
     -- -- -- update screens with process status
     -- exit
 end

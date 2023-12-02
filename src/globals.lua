@@ -4,11 +4,11 @@ DEBUG = true
 INGAME = system ~= nil
 
 if not INGAME then
+    ---@if Willi "Wonka"
+    require("dumocks")
+    ---@end
     if DEBUG then
         require('Codex')
-        package.path = "util/du-mocks/?.lua;" .. package.path
-        local mockManualButtonUnit = require("ManualButtonUnit")
-        local ManualButtonUnit = mockManualButtonUnit:new()
     end
     function traceback(o)
         if o then P(tostring(o)) end

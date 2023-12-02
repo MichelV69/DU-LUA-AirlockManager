@@ -6,23 +6,29 @@
   "description": "LUA Script to produce 'Realistic' / RP-friendly behaviour for 'Airlocks'",
   "sourcePath": "src",
   "outputPath": "out",
-  "libs": [],
+  "libs": [
+    {
+      "id": "du-mocks",
+      "type": "raw",
+      "path": "../_templates/du-mocks/src/du-mocks"
+    }
+  ],
   "builds": {
-    "fixedSlots": {
+    "mainWFS": {
       "name": "mainWFS",
       "type": "control",
       "slots": {
         "0": {
-          "name": "insideButton",
-          "type": "ManualButtonUnit"
+          "name": "insideSwitch",
+          "type": "ManualSwitchUnit"
         },
         "1": {
           "name": "insideDoor",
           "type": "DoorUnit"
         },
         "2": {
-          "name": "outsideButton",
-          "type": "ManualButtonUnit"
+          "name": "outsideSwitch",
+          "type": "ManualSwitchUnit"
         },
         "3": {
           "name": "outsideDoor",
@@ -41,11 +47,11 @@
           "type": "LightUnit"
         },
         "7": {
-          "name": "insideButtonLight",
+          "name": "insideSwitchLight",
           "type": "LightUnit"
         },
         "8": {
-          "name": "outsideButtonLight",
+          "name": "outsideSwitchLight",
           "type": "LightUnit"
         },
         "9": {
