@@ -13,10 +13,8 @@
 -- These 2 lines do not interfere ingame but allow the use
 -- of debuggers running the script outside of the game.
 ---@diagnostic disable: param-type-mismatch
-package.path = "util/?.lua;" .. package.path
-
-local outsideSwitch = require("dumocks.ManualSwitchUnit"):mockGetClosure()
-local insideSwitch = require("dumocks.ManualSwitchUnit"):mockGetClosure()
+package.path = "./util/?.lua;" .. package.path
+package.path = package.path .. ";./util/du-mocks/?.lua"
 
 -- File with commonly shared, independent global constants and switches etc.
 -- This is for use across multiple project entry points.
