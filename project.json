@@ -8,9 +8,9 @@
   "outputPath": "out",
   "libs": [
     {
-      "id": "du-mocks",
+      "id": "dumocks",
       "type": "raw",
-      "path": "../_templates/du-mocks/src/du-mocks"
+      "path": "./util/du-mocks/"
     }
   ],
   "builds": {
@@ -20,47 +20,47 @@
       "slots": {
         "0": {
           "name": "insideSwitch",
-          "type": "ManualSwitchUnit"
+          "type": "pressable"
         },
         "1": {
           "name": "insideDoor",
-          "type": "DoorUnit"
+          "type": "enterable"
         },
         "2": {
           "name": "outsideSwitch",
-          "type": "ManualSwitchUnit"
+          "type": "pressable"
         },
         "3": {
           "name": "outsideDoor",
-          "type": "DoorUnit"
+          "type": "enterable"
         },
         "4": {
           "name": "insideLight",
-          "type": "LightUnit"
+          "type": "element"
         },
         "5": {
           "name": "outsideLight",
-          "type": "LightUnit"
+          "type": "element"
         },
         "6": {
           "name": "middleLight",
-          "type": "LightUnit"
+          "type": "element"
         },
         "7": {
           "name": "insideSwitchLight",
-          "type": "LightUnit"
+          "type": "element"
         },
         "8": {
           "name": "outsideSwitchLight",
-          "type": "LightUnit"
+          "type": "element"
         },
         "9": {
           "name": "statusScreen1",
-          "type": "ScreenUnit"
+          "type": "screen"
         },
         "10": {
           "name": "statusScreen1",
-          "type": "ScreenUnit"
+          "type": "screen"
         }
       }
     }

@@ -25,7 +25,7 @@
     "completion.autoRequire": false,
     "workspace": {
         "library": [
-          "./lua"
+          "./lua", "./util", "./util/dumocks"
         ]
     },
     "runtime.version": "Lua 5.2"
