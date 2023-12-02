@@ -4,16 +4,16 @@ DEBUG = true
 INGAME = system ~= nil
 
 if not INGAME then
-    ---@if Willi "Wonka"
-    require("dumocks")
-    ---@end
-    if DEBUG then
-        require('Codex')
-    end
+---@if DEBUG true
+    --require("mocks")
+---@end
     function traceback(o)
         if o then P(tostring(o)) end
     end
 else
-    print = system.print
+    --require 'mockfuncs'
+    print=system.print
 end
-P = print
+P=print
+
+--- end of file ---
